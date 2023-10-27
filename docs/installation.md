@@ -18,6 +18,16 @@ git submodule update --init
 
 The last instruction allows the user to get the submodule named [mim](https://github.com/kvernet/mim) in the deps directory.
 
+### The contents of the repository
+The contents of the repository are as follows:
+
+- src that contains the source code (.h, .c) and a python file used when compiling the library
+- mim that contains the Python core interface
+- examples that contains the C and Python examples
+- README.md and LICENSE.txt
+- Makefile and setup.sh to compile the package
+- .gitignore
+
 
 ### Python version 3
 
@@ -35,7 +45,7 @@ The result should be something like "Python 3.x.y". If so, the user is good to g
 
 For both C and Python applications, a user must have the CMake already installed on his/her computer. Instructions to install CMake could be found on the [CMake page](https://cmake.org/). CMake version 3.xx was used to test the sofware on a Linux (debian) machine. Any newer version may work also.
 
-### Compilation
+## Compilation
 
 To compile the library, a user must go to where the source code is on the computer and type the following:
 
@@ -44,7 +54,7 @@ make package
 ```
 By executing the above instruction, the library should be installed in the lib/ directory. Note that, that instruction uses the setup.sh and the files in the src/ directory to build the dynamic library named mim. It also links the h header file (mim.h) into mim/include/ and the library (libmim.so) into mim/lib/. And finally it creates the wrapped file mim/wrapper.abi3.so used in Python applications by mim/core.py.
 
-### Examples
+## Examples
 
 The C examples could be compiled and installed by executing the following instruction:
 
