@@ -9,9 +9,9 @@ The idea here, is not to describle the muon imaging concepts but to describe how
 
 ## The problem we solve
 
-In muon imaging, sometimes it is necessary to have sufficient number of muons to be able to properly reconstruct the density distribution of a target. Unfortunately we are dependent on what the nature provides and our detectors have limited aceptance and often we need to reconstruct the interior of the target in a short time. The solution provided by MIM algorithms is to make the most of every muon we detect while preserving the best possible spatial resolution.
+In muon imaging, sometimes it is necessary to have sufficient number of muons to be able to properly reconstruct the density distribution of a target. Unfortunately we are dependent on what the nature provides and our detectors have limited aceptance and often we need to reconstruct the interior of the target in a short time. The solution provided by MIM algorithms is to make the most of every muon we detect while preserving the best possible spatial resolution. The accretion algorithm that allows to integrate the closest bins to have the minimum number of muons is described [here](algorithm.md).
 
-Two algorithms are developped to solve the problems. The [accretion algorithm](algorithms/accretion.md#the-accretion-algorithm) allows to integrate the closest bins to have the minimum number of muons and the [kernel algorithm](algorithms/kernel.md#the-kernel-algorithm) allows to affect the reconstructed density to all accreted bins with different weights. Note also, assuming that the number of detected muons follows a Poisson distribution then the statistical uncertainty on the reconstructed density is, in first approximation, function inverse of $\sqrt{number\, of\, muons}$. We can easily deduce that the algorithms implicitly allow to reconstruct the density of a target with a statistical uncertainty not exceeding a threshold value.
+Note also, assuming that the number of detected muons follows a Poisson distribution then the statistical uncertainty on the reconstructed density is, in first approximation, function inverse of $\sqrt{number\, of\, muons}$. We can easily deduce that the algorithms implicitly allow to reconstruct the density of a target with a statistical uncertainty not exceeding a threshold value.
 
 
 ## The methodology

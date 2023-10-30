@@ -137,7 +137,7 @@ The function returns **MIM_SUCCESS** or **MIM_FAILURE** if the inverting goes we
 
 ### Inverting for a minimum value
 
-In muon imaging concepts, sometimes it is necessary to have sufficient number of muons to be able to properly reconstruct/invert the density distribution of a target. Unfortunately we are dependent on what the nature provides and therefore we need to make the most of every muon we detect. In the MIM package, two algorithms are developped to solve the problems. The [accretion algorithm](algorithms/accretion.md) allows the user to integrate the closest bins to have the minimum number of muons and the [kernel algorithm](algorithms/kernel.md) allows to estimate the parameter.
+In muon imaging concepts, sometimes it is necessary to have sufficient number of muons to be able to properly reconstruct/invert the density distribution of a target. Unfortunately we are dependent on what the nature provides and therefore we need to make the most of every muon we detect. In the MIM package, two algorithms are developped to solve the problems. The accretion algorithm that allows to integrate the closest bins to have the minimum number of muons is described [here](algorithm.md).
 
 The following function allows the user to invert an observation from a model with a minimum value.
 

@@ -3,13 +3,12 @@ site_name: MIM
 nav:
   - Home: 'index.md'
   - Installation: 'installation.md'
+  - Algorithm: 'algorithm.md'
   - API: 'api.md'
-  - Accretion algorithm: 'algorithms/accretion.md'
-  - Kernel algorithm: 'algorithms/kernel.md'
   - Examples: 'examples.md'
 
 theme:
-  name: mkdocs
+  name: readthedocs
 
 
 markdown_extensions:
