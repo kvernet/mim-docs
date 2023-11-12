@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+mkdocs
+Markdown==3.3.7
+python-markdown-math

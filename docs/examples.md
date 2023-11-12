@@ -1,4 +1,4 @@
-# Simple projects
+# Examples
 
 In the following, we provide some simple codes to help the user in using the MIM API. The directory examples/ contains other examples and may be used.
 
