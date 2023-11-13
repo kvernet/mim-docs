@@ -1,9 +1,11 @@
 # Examples
 
-In the following, we provide some simple codes to help the user in using the MIM API. The directory examples/ contains other examples and may be used.
+In the following, we provide some simple codes to help the user in using the **MIM** API. These examples can be found in the examples/ directory.
 
 
-## MIM image
+## A MIM image
+
+The following example shows how to create a zeroed **MIM** image, access each value via the index (i, j) and then free allocated memory.
 
 ```c
 /* Public API */
@@ -38,10 +40,28 @@ int main(void) {
 ```
 
 
-## MIM model
+## A MIM model
+
+The following example defines seven (7) models of some target. Each model contains a (6x4) image described by a parameter. The parameters is a table of size 7 from 1.0 to 2.8 at regular interval. The function **get_count** is used to fill the images of the models and also a random image called **observation**. The observation is then inverted into parameter of the model. At the end, the allocated memory is freed.
 
 ```c
-const size_t width = 6;
+/* Public API */
+#include "mim.h"
+/* C standard library */
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+double get_count(const double density) {
+	return 100. - 5. * density;
+}
+
+int main(void) {
+	time_t t;
+	/* Intializes random number generator */
+	srand((unsigned) time(&t));
+	
+	const size_t width = 6;
 	const size_t height = 4;
 	const size_t size = 7;
 	
@@ -82,6 +102,35 @@ const size_t width = 6;
 			size, parameter, images);
 	
 	/* Inverted result */
-	struct mim_img *result = mim_img_empty(width, height);
-
+	struct mim_img *result = mim_img_empty(width, height);	
+	
+	
+	enum mim_return rc = mim_model_invert(
+			result, model, observation, NULL);
+	
+	if(rc == MIM_FAILURE) {
+		return 1;
+	}
+	
+	for(i = 0; i < width; i++) {
+		for(j = 0; j < height; j++) {			
+			printf("(%ld, %ld)", i, j);			
+			for(k = 0; k < size; k++) {
+				printf(" %g[%g]", images[k]->get(images[k], i, j), parameter[k] );
+			}
+			
+			printf(" -> %g[%g]\n", observation->get(observation, i, j), result->get(result, i, j));
+		}
+	}
+	
+	/* Free allocated memory */
+	for(k = 0; k < size; k++) {
+		images[k]->destroy(&images[k]);
+	}
+	model->destroy(&model);
+	result->destroy(&result);
+	observation->destroy(&observation);
+	
+	return 0;
+}
 ```
