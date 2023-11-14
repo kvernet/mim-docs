@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
 mkdocs
+mkdocs-material
 Markdown==3.3.7
 python-markdown-math
+pymdown-extensions

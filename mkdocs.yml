@@ -13,6 +13,11 @@ theme:
 
 markdown_extensions:
     - extra
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+        alternate_style: true
+    - admonition
+    - pymdownx.details
     - tables
     - mdx_math:
         enable_dollar_delimiter: True
@@ -20,3 +25,4 @@ markdown_extensions:
 
 extra_javascript: 
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
